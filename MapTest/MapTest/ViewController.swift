@@ -100,6 +100,11 @@ class OfflinePackDownloaderViewController: UIViewController, MGLMapViewDelegate 
         checkDownloadButtonStatus()
     }
     
+    func mapViewDidFailLoadingMap(_ mapView: MGLMapView, withError error: Error) {
+        processHintView.dismiss(animated: false)
+        AlertHelper.showAlert(message: "Loading map failed.", presentViewController: self)
+    }
+    
     func checkDownloadButtonStatus() {
         downloadButton.isEnabled = mapIsReady && offlineStorageIsReady
     }
