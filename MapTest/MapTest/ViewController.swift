@@ -214,6 +214,8 @@ extension OfflinePackDownloaderViewController {
             let progress = pack.progress
             let completedResources = progress.countOfResourcesCompleted
             let expectedResources = progress.countOfResourcesExpected
+            
+            print("completedResources(\(completedResources)) expectedResources(\(expectedResources))")
 
             // Calculate current progress percentage.
             let progressPercentage = Float(completedResources) / Float(expectedResources)

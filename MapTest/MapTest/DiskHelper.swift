@@ -14,8 +14,8 @@ struct DiskHelper {
     
     // The return result is bytes
     static func getAvailableDiskSpace() -> Int64 {
-        // Mapbox saves its offline map into Application Support directory
-        let fileURL = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
+        // Mapbox saves its offline map into Application Support directory under library directory
+        let fileURL = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)[0]
         do {
             let values = try fileURL.resourceValues(forKeys: [.volumeAvailableCapacityForImportantUsageKey])
             if let capacity = values.volumeAvailableCapacityForImportantUsage {
